@@ -1,6 +1,6 @@
 <form class="text-post-form" #textPostInputForm="ngForm" (ngSubmit)="onSubmit(textPostInputForm)">
   <div class="text-post-title">
-    Create text post
+    Create basic card
   </div>
   <div>
     <md-input-container class="text-post-full-width">
@@ -15,6 +15,7 @@
     </md-input-container>
   </div>
   <div>
-    <button class="text-post-submit-button" md-raised-button [disabled]="!textPostInputForm.form.valid" (click)="onButtonClick()">Submit</button>
+    <button class="text-post-submit-button" md-raised-button
+            [disabled]="!textPostInputForm.form.valid" (click)="onButtonClick()">Submit</button>
   </div>
 </form>

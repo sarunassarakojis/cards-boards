@@ -2,24 +2,17 @@
                      [buttonText]="'Add'"
                      (submitButtonClick)="addNewTextPost($event)">
 </app-text-post-input>
-<p *ngIf="textPosts.length == 0">There is no text posts.</p>
 
 <md-card *ngFor="let textPost of textPosts.reverse()" class="example-card">
   <md-card-header>
     <div md-card-avatar class="example-header-image"></div>
     <md-card-title>{{textPost.postAuthor.username}}</md-card-title>
-    <!--<md-card-subtitle class="text-card-subtitle">{{textPost.subject}}</md-card-subtitle>-->
+    <md-card-subtitle class="text-card-subtitle">{{textPost.subject}}</md-card-subtitle>
   </md-card-header>
   <md-card-content>
-    <p class="text-card-subtitle">
-      {{textPost.subject}}
-    </p>
-    <p>
-      {{textPost.description}}
-    </p>
+    <p>{{textPost.description}}</p>
   </md-card-content>
   <md-card-actions>
     <button md-button (click)="onLikeClick(textPost)">Like</button>
   </md-card-actions>
 </md-card>
-

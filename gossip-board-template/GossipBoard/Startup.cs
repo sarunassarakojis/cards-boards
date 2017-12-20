@@ -70,7 +70,8 @@ namespace GossipBoard
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IPollPostRepository, PollPostRepository>();
             services.AddScoped<IPollPostService, PollPostService>();
-            services.AddEntityFrameworkSqlite().AddDbContext<DemoDbContext>(options => options.UseSqlite("Filename=./demo.db"));
+            services.AddEntityFrameworkSqlite()
+                .AddDbContext<DemoDbContext>(options => options.UseSqlite("Filename=./demo.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -104,7 +105,6 @@ namespace GossipBoard
                     c.DocExpansion("none");
                     c.SwaggerEndpoint(swaggerUrl, "Gossip Demo Application");
                 });
-
         }
     }
 }

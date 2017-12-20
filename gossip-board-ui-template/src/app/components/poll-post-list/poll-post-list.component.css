@@ -1,9 +1,8 @@
 .example-card {
   width: 50%;
+  margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
-  margin-right: 20px;
-  margin-left: 20px;
 }
 
 .example-header-image {
