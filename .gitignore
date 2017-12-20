@@ -1,0 +1,16 @@
+lib
+bin
+obj
+published
+.vs
+*.user
+*.map
+*.development.json
+.vscode
+.idea
+/dist
+/tmp
+/node_modules
+npm-debug.log
+/typings
+images
