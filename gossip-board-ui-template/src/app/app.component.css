@@ -1,0 +1,11 @@
+a.active {
+  font-weight: bold;
+}
+
+a {
+  color: white;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

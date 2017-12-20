@@ -1,0 +1,20 @@
+<form class="text-post-form" #textPostInputForm="ngForm" (ngSubmit)="onSubmit(textPostInputForm)">
+  <div class="text-post-title">
+    Create text post
+  </div>
+  <div>
+    <md-input-container class="text-post-full-width">
+      <input mdInput placeholder="Subject" type="text" [(ngModel)]="textPost.subject"
+             id="subject" required name="textPostName" #textPostNameInput="ngModel">
+    </md-input-container>
+  </div>
+  <div>
+    <md-input-container class="text-post-full-width">
+       <textarea mdInput placeholder="Description" [(ngModel)]="textPost.description"
+                 id="Description" name="textPostDescription"></textarea>
+    </md-input-container>
+  </div>
+  <div>
+    <button class="text-post-submit-button" md-raised-button [disabled]="!textPostInputForm.form.valid" (click)="onButtonClick()">Submit</button>
+  </div>
+</form>

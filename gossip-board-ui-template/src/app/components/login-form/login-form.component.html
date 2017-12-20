@@ -1,0 +1,18 @@
+<form class="login-form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <div class="login-title">
+    Login
+  </div>
+  <md-input-container class="login-full-width">
+    <input mdInput placeholder="Username" type="text" [(ngModel)]="loginUser.username" id="username" name="username" required>
+  </md-input-container>
+  <md-input-container class="login-full-width">
+    <input mdInput placeholder="Password" type="password" [(ngModel)]="loginUser.password" id="password" name="password" required>
+  </md-input-container>
+  <div class="login-full-width">
+    <md-checkbox checked="true">Remember me</md-checkbox>
+  </div>
+  <div>
+    <button md-raised-button class="login-submit-button" [disabled]="!loginForm.form.valid">Login</button>
+  </div>
+  <p>Not registered? <a routerLink="/register" routerLinkActive="active">Register</a></p>
+</form>

@@ -1,0 +1,31 @@
+<section class="mat-typography">
+  <md-toolbar color="primary">
+    <span>Gossip Board</span>
+    <span>
+      <nav md-tab-nav-bar>
+        <a md-tab-link routerLink="/home" routerLinkActive="active">Home</a>
+      </nav>
+    </span>
+    <span class="spacer"></span>
+    <span>
+      <button md-icon-button [mdMenuTriggerFor]="menu">
+        <md-icon>more_vert</md-icon>
+      </button>
+      <md-menu #menu="mdMenu">
+        <button md-menu-item (click)="onProfileClick()">
+          <span>Profile</span>
+        </button>
+        <button md-menu-item (click)="onLoginClick()">
+          <span>Login</span>
+        </button>
+        <button md-menu-item (click)="onRegisterClick()">
+          <span>Register</span>
+        </button>
+        <button md-menu-item (click)="onLogoutClick()">
+          <span>Logout</span>
+        </button>
+      </md-menu>
+    </span>
+  </md-toolbar>
+  <router-outlet></router-outlet>
+</section>

@@ -1,0 +1,29 @@
+.media-post-form {
+  width: 50%;
+  border: 1px solid rgba(0,0,0,.03);
+  box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.media-post-full-width {
+  width: 90%;
+  position: relative;
+  padding-left: 15px;
+  padding-right: 20px;
+}
+
+.media-post-title {
+  color: rgba(0,0,0,.54);
+  background: rgba(0,0,0,.03);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+
+.media-post-submit-button{
+  margin-left: 20px;
+  margin-bottom: 10px;
+}

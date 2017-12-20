@@ -1,0 +1,44 @@
+<form class="poll-post-form" #pollPostInputForm="ngForm" (ngSubmit)="onSubmit(pollPostInputForm)">
+  <div class="poll-post-title">
+    Create poll
+  </div>
+
+  <div>
+    <md-input-container class="poll-post-full-width">
+      <input mdInput placeholder="Subject" [(ngModel)]="pollPost.subject"
+             id="subject" required name="pollPostName" #pollPostNameInput="ngModel">
+    </md-input-container>
+  </div>
+
+  <div>
+    <md-input-container class="poll-post-full-width">
+      <textarea mdInput placeholder="Description" [(ngModel)]="pollPost.description"
+                id="description" name="pollPostDescription"></textarea>
+    </md-input-container>
+  </div>
+
+  <div>
+    <md-input-container class="poll-post-full-width">
+      <input mdInput placeholder="Poll item 1" [(ngModel)]="pollItems[0].pollItemText"
+             id="item1" required name="pollItem1">
+    </md-input-container>
+  </div>
+  <div>
+    <md-input-container class="poll-post-full-width">
+      <input mdInput placeholder="Poll item 2" [(ngModel)]="pollItems[1].pollItemText"
+             id="item2" name="pollItem2">
+    </md-input-container>
+  </div>
+  <div>
+    <md-input-container class="poll-post-full-width">
+      <input mdInput placeholder="Poll item 3" [(ngModel)]="pollItems[2].pollItemText"
+             id="item3" name="pollItem3">
+    </md-input-container>
+  </div>
+
+  <div>
+    <button class="poll-post-submit-button" md-raised-button [disabled]="!pollPostInputForm.form.valid"
+            (click)="onButtonClick()">Submit
+    </button>
+  </div>
+</form>

@@ -1,0 +1,31 @@
+<form class="media-post-form" #mediaPostInputForm="ngForm" (ngSubmit)="onSubmit(mediaPostInputForm)">
+  <div class="media-post-title">
+    Create media post
+  </div>
+  <div>
+    <md-input-container class="media-post-full-width">
+      <input mdInput placeholder="Subject" type="media" [(ngModel)]="mediaPost.subject"
+             id="subject" required name="mediaPostName" #mediaPostNameInput="ngModel">
+    </md-input-container>
+  </div>
+  <div>
+    <md-input-container class="media-post-full-width">
+       <textarea mdInput placeholder="Description" [(ngModel)]="mediaPost.description"
+                 id="Description" name="mediaPostDescription"></textarea>
+    </md-input-container>
+  </div>
+  <div>
+    <md-input-container class="media-post-full-width">
+       <input mdInput placeholder="Youtube video URL" [(ngModel)]="mediaPost.videoUrl"
+                 id="VideoUrl" name="mediaPostVideo">
+    </md-input-container>
+  </div>
+  <div>
+    <input class="media-post-submit-button" placeholder="Image" type="file" (change)="onFileChange($event)" />
+    <!--<button md-icon-button [disabled]="!image" (click)="uploadImage()"><md-icon>file_upload</md-icon></button>-->
+    <label id="uploadMessage"></label>
+  </div>
+  <div>
+    <button class="media-post-submit-button" md-raised-button [disabled]="!mediaPostInputForm.form.valid" (click)="onButtonClick()">Submit</button>
+  </div>
+</form>

@@ -1,0 +1,31 @@
+<app-poll-post-input [buttonText]="'Add'" (submitButtonClick)="addNewPollPost($event)"></app-poll-post-input>
+
+<p *ngIf="pollPosts.length == 0">There is no poll posts.</p>
+
+<md-card *ngFor="let pollPost of pollPosts" class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>{{pollPost.postAuthor.username}}</md-card-title>
+  </md-card-header>
+
+  <md-card-content>
+    <p class="text-card-subtitle">{{pollPost.subject}}</p>
+    <p>{{pollPost.description}}</p>
+
+    <md-list>
+      <h3 md-subheader>Poll items</h3>
+      <md-list-item *ngFor="let pollItem of pollPost.pollItems">
+
+        <md-checkbox md-tooltip="{{pollItem.pollItemParticipants.length}} users have chosen this"
+                     mdTooltipPosition="right">
+          {{pollItem.pollItemText}}
+        </md-checkbox>
+
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+
+  <md-card-actions>
+    <button md-button="">LIKE</button>
+  </md-card-actions>
+</md-card>

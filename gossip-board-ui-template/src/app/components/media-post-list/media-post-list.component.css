@@ -1,0 +1,46 @@
+.example-card {
+  width: 50%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.example-header-image {
+  background-image: url('../../../assets/img/shiba1.jpg');
+  background-size: cover;
+}
+
+.media-card-subtitle {
+  font: 200% bold;
+  color: 	#000000;
+}
+
+.embed-responsive
+{
+  display: block;
+  height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.embed-responsive.embed-responsive-16by9
+{
+  padding-bottom: 56.25%
+}
+
+.embed-responsive .embed-responsive-item, .embed-responsive iframe, .embed-responsive embed, .embed-responsive object
+{
+  border: 0 none;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.delete-button {
+  position: absolute;
+  right: 0px;
+}
