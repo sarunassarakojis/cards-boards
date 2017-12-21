@@ -21,8 +21,10 @@ export class MediaPostListComponent implements OnInit {
   userDetails: User = new User();
   @Output() deleteButtonClick = new EventEmitter<number>();
   videoUrl: SafeResourceUrl;
+
   constructor(private mediaPostService: MediaPostService, private router: Router, private sanitizer: DomSanitizer,
-              public snackBar: MdSnackBar, private userDetailService: UserDetailService) { }
+              public snackBar: MdSnackBar, private userDetailService: UserDetailService) {
+  }
 
   getImageUrl(imagePath: ImagePath) {
     return this.mediaPostService.getMediaImageUrl(imagePath.path);
@@ -32,6 +34,7 @@ export class MediaPostListComponent implements OnInit {
     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(unsafeUrl);
     return this.videoUrl;
   }
+
   getUsername() {
     this.userDetailService.getUser().subscribe(userDetails => {
         this.userDetails.username = userDetails.username;
@@ -41,6 +44,7 @@ export class MediaPostListComponent implements OnInit {
         console.log(error);
       });
   }
+
   ngOnInit() {
     this.mediaPostService.getMediaPosts().subscribe(mediaPosts => {
         this.mediaPosts = mediaPosts;
@@ -57,12 +61,12 @@ export class MediaPostListComponent implements OnInit {
     this.deleteFromList(this.mediaPosts, 'id', deleteMediaPost.id);
   }
 
-  deleteFromList(arr, attr, value){
+  deleteFromList(arr, attr, value) {
     let i = arr.length;
-    while ( i--) {
-      if ( arr[i]
+    while (i--) {
+      if (arr[i]
         && arr[i].hasOwnProperty(attr)
-        && (arguments.length > 2 && arr[i][attr] === value ) ){
+        && (arguments.length > 2 && arr[i][attr] === value)) {
 
         arr.splice(i, 1);
 
@@ -76,7 +80,7 @@ export class MediaPostListComponent implements OnInit {
       .subscribe((newMediaPost: MediaPost) => {
         mediaPost = newMediaPost;
         this.mediaPosts.push(mediaPost);
-        this.snackBar.open('You successfully created media post', null, { duration: 3000});
+        this.snackBar.open('You successfully created media post', null, {duration: 3000});
       });
   }
 }

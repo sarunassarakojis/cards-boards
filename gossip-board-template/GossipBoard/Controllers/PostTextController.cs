@@ -66,8 +66,8 @@ namespace GossipBoard.Controllers
 
             return Ok(updatedTextPost);
         }
-        [HttpDelete]
-        public async Task<IActionResult> Delete([FromQuery]int id)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete([FromRoute]int id)
         {
             var result = await _service.Delete(id);
 

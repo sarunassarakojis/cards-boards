@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {TextPost} from '../models/text-post';
 import {Observable} from 'rxjs/Observable';
@@ -11,7 +11,8 @@ export class TextPostService {
   private readonly textPostApiUrl = `${this.webApiUrl}/textPost`;
   private readonly likeTextPostApiUrl = `${this.textPostApiUrl}/like`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getTextPosts(): Observable<TextPost[]> {
     return this.http.get<TextPost[]>(this.textPostApiUrl);
@@ -23,20 +24,27 @@ export class TextPostService {
       withCredentials: true
     };
   }
+
   addTextPost(textPost: TextPost): Observable<TextPost> {
     const body = JSON.stringify(textPost);
     return this.http.post(this.textPostApiUrl, body, this.RequestOptions);
   }
+
   getTextPost(textPostId: string): Observable<TextPost> {
     return this.http.get<TextPost>(`${this.textPostApiUrl}/${textPostId}`);
   }
+
   updateTextPost(textPost: TextPost): Observable<TextPost> {
     const body = JSON.stringify(textPost);
     return this.http.put(this.textPostApiUrl, body, this.RequestOptions);
   }
+
   deleteTextPost(textPostId: TextPost): Observable<boolean> {
-    return this.http.delete(`${this.textPostApiUrl}/${textPostId}`, this.RequestOptions);
+    const url = `${this.textPostApiUrl}/${textPostId.id}`;
+    console.log(url);
+    return this.http.delete(url);
   }
+
   likeTextPost(textPost: TextPost): Observable<TextPost> {
     const body = JSON.stringify(textPost);
     return this.http.post(this.likeTextPostApiUrl, body, this.RequestOptions);

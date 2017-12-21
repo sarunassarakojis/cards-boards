@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TextPost} from '../../models/text-post';
 import {TextPostService} from '../../services/text-post.service';
 import {Router} from '@angular/router';
@@ -14,7 +14,8 @@ export class TextPostListComponent implements OnInit {
   textPosts: TextPost[] = [];
   newTextPost: TextPost = new TextPost();
 
-  constructor(private textPostService: TextPostService, private router: Router, public snackBar: MdSnackBar) { }
+  constructor(private textPostService: TextPostService, private router: Router, public snackBar: MdSnackBar) {
+  }
 
   ngOnInit() {
     this.textPostService.getTextPosts().subscribe(textPosts => {
@@ -31,13 +32,29 @@ export class TextPostListComponent implements OnInit {
       .subscribe((newTextPost: TextPost) => {
         textPost = newTextPost;
         this.textPosts.push(textPost);
-        this.snackBar.open('You successfully created text post', null, { duration: 3000});
+        this.snackBar.open('You successfully created text post', null, {duration: 3000});
       });
   }
-  onLikeClick(textPost: TextPost) {
-    this.textPostService.likeTextPost(textPost)
-      .subscribe((updatedTextPost: TextPost) => {
-        console.log(updatedTextPost);
+
+  onRemoveButtonClick(textPost: TextPost) {
+    this.deleteFromList(this.textPosts, 'id', textPost.id);
+    this.textPostService.deleteTextPost(textPost)
+      .subscribe((result: boolean) => {
+        this.snackBar.open('Card was deleted successfully', null, {duration: 3000});
       });
+  }
+
+  deleteFromList(arr, attr, value) {
+    let i = arr.length;
+    while (i--) {
+      if (arr[i]
+        && arr[i].hasOwnProperty(attr)
+        && (arguments.length > 2 && arr[i][attr] === value)) {
+
+        arr.splice(i, 1);
+
+      }
+    }
+    return arr;
   }
 }

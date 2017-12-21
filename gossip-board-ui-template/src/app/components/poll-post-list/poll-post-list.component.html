@@ -1,7 +1,5 @@
 <app-poll-post-input [buttonText]="'Add'" (submitButtonClick)="addNewPollPost($event)"></app-poll-post-input>
 
-<p *ngIf="pollPosts.length == 0">There is no poll posts.</p>
-
 <md-card *ngFor="let pollPost of pollPosts" class="example-card">
   <md-card-header>
     <div md-card-avatar class="example-header-image"></div>
